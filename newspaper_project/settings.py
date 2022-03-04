@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 import mimetypes
 mimetypes.add_type("text/css", ".css", True)
 # Quick-start development settings - unsuitable for production
@@ -31,8 +32,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'users.apps.UsersConfig',
+    'users.apps.UsersConfig',   
     'pages.apps.PagesConfig',
+    'articles.apps.ArticlesConfig',
     'django.contrib.admin',
     'crispy_forms',
     'django.contrib.auth',
@@ -129,3 +131,9 @@ AUTH_USER_MODEL = 'users.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mandrillapp.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD =''
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
